@@ -8,7 +8,7 @@ class Mediator{
         virtual void Notify(string event) = 0;
 };
 
-class Student{
+class Student{ // Colleague
     protected:
         Mediator* mediator;
         int damage = 0;
@@ -18,7 +18,7 @@ class Student{
         }
 };
 
-class MSstudent : public Student{
+class MSstudent : public Student{ // ConcreteColleague1
     public:
         // event가 발생하면 mediator의 notify에 event를 넘겨줘서 처리하게한다.
         void MSattack(){
@@ -31,7 +31,7 @@ class MSstudent : public Student{
         }
 };
 
-class EEstudent : public Student{
+class EEstudent : public Student{ // ConcreteColleague2
     public:
         // event가 발생하면 mediator의 notify에 event를 넘겨줘서 처리하게한다.
         void EEattack(){
@@ -45,7 +45,7 @@ class EEstudent : public Student{
 };
 
 
-class StudentMediator : public Mediator{
+class StudentMediator : public Mediator{ // ConcreteMediator
     private:
         MSstudent* msstudent;
         EEstudent* eestudent;
